@@ -1,0 +1,24 @@
+.cards_container{
+    justify-content: center;
+    display:flex;
+    flex-wrap: wrap;
+   
+
+
+}
+.card{
+    margin: 10px;
+    width: 200px;
+    height: 275px;
+    background-color: grey;
+    overflow: hidden;
+    image-rendering: auto;
+    border-radius: 10px;
+
+
+}
+.card img{
+    image-rendering: auto;
+    width: 100%;
+    
+}
