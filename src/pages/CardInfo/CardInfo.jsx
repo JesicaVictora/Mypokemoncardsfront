@@ -3,11 +3,12 @@ import { API } from '../../shared/consts/api.consts';
 import {useParams} from 'react-router-dom';
 
 
-export function CardInfo (){
+export function CardInfo (props){
     const [card, setCard] = useState([]);
     const [prices, setPrices]= useState([]);
-    const {cardId}=useParams();
-
+    //const {cardId}=useParams();
+    const cardId = props.cardId;
+    console.log(cardId);
       
     const getCard = () =>{
         API.get('v2/cards/'+cardId).then((res)=> { 
@@ -43,7 +44,7 @@ export function CardInfo (){
                         <p>Set: {card.set.name}</p>
                         <p>Prices:</p>
                     
-                    { prices=="" &&  
+                    { prices==="" &&  
                         <div>
                             <p>Price not found</p> <br/>
                         </div>

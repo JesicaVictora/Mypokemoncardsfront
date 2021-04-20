@@ -1,0 +1,15 @@
+.popup_container{
+    width: 80%;
+    height: 80%;
+    margin: 0;
+    position: fixed;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+
+    transition: all 0.3s ease-in-out;
+
+
+}
