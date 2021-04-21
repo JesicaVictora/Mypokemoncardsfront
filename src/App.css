@@ -1,4 +1,6 @@
-.container{
+.App_container{
 
 padding-top: 50px;
+margin: 0;
+box-sizing: content-box;
 }

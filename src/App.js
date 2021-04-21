@@ -12,7 +12,7 @@ function App() {
     <Router>
     <div className="App">
       <Menu></Menu>
-      <div className="container">
+      <div className="App_container">
         <Routes></Routes>
       </div>
     </div>

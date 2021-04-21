@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { API } from '../../shared/consts/api.consts';
 import {useParams} from 'react-router-dom';
+import './CardInfo.css';
 
 
 export function CardInfo (props){
@@ -32,15 +33,15 @@ export function CardInfo (props){
 
 
       return(
-            <div>
+            <div className="card_container">
              { card.images && 
-                <div className="container">
+                <div >
                     
                       <img src={card.images.small}></img>
            
-             
                   
                         <h1> {card.name}</h1>
+
                         <p>Set: {card.set.name}</p>
                         <p>Prices:</p>
                     

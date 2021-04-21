@@ -2,24 +2,25 @@ import React, {useEffect, useState} from 'react';
 import { API } from '../../shared/consts/api.consts';
 import { Gallery } from '../../shared/components/Gallery/Gallery';
 import {SearchBar} from '../../shared/components/SearchBar/SearchBar'
-import { PopUp } from '../../shared/components/PopUp/PopUp';
+import { Modal } from '../../shared/components/Modal/Modal';
+import './Card.css';
 
 export function Card (){
   const [cards, setCards] = useState([]);
   const [cardId,setCardId]= useState("");
-  const [showPopUp, setShowPopUp] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const setCard= (card)=>{
 
     setCardId(card);
-    setShowPopUp(true);
+    setShowModal(true);
 
 
   }
 
-  const closePopUp = ()=>{
+  const closeModal = ()=>{
 
-    setShowPopUp(false);
+    setShowModal(false);
 
   }
 
@@ -50,16 +51,19 @@ export function Card (){
 
     return(
       <div>
-         {showPopUp === true &&
+        {showModal === true &&
+          <div className="Modal_container"> 
+                <Modal cardId={cardId} close={closeModal} ></Modal>             
+          </div>
+        }
+          <div>
+            
+                <SearchBar search={getCards}></SearchBar>
+
+                <Gallery cards={cards} setCard={setCard} ></Gallery>
+
           
-          <PopUp cardId={cardId} close={closePopUp} ></PopUp>
-
-         }
-        <SearchBar search={getCards}></SearchBar>
-
-        <Gallery cards={cards} setCard={setCard} ></Gallery>
-
-      
+        </div>
      </div>
     );
 }

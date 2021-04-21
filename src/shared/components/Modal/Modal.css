@@ -1,0 +1,25 @@
+.Modal_main{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    margin-top: 20px;
+    overflow: hidden;
+   
+    background-color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+
+
+    border-color: grey;
+    border-radius: 10px;
+    border-style: solid;
+
+    display: flex;
+    flex-wrap: wrap;
+  
+    
+
+
+}
