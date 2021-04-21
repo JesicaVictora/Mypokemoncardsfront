@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import { API } from '../../shared/consts/api.consts';
-import {useParams} from 'react-router-dom';
 import './CardInfo.css';
 
 
 export function CardInfo (props){
     const [card, setCard] = useState([]);
     const [prices, setPrices]= useState([]);
-    //const {cardId}=useParams();
     const cardId = props.cardId;
-    console.log(cardId);
+    
       
     const getCard = () =>{
         API.get('v2/cards/'+cardId).then((res)=> { 
@@ -35,48 +33,63 @@ export function CardInfo (props){
       return(
             <div className="card_container">
              { card.images && 
-                <div >
-                    
-                      <img src={card.images.small}></img>
-           
-                  
-                        <h1> {card.name}</h1>
+                <table class="table">
+                    <tr>
+                        <td rowspan="8">
+                         <img src={card.images.small}></img>
+                        </td>
+                        <td>
+                            <h1> {card.name}</h1>
+                        </td>
 
-                        <p>Set: {card.set.name}</p>
-                        <p>Prices:</p>
+                    </tr>
+                    
+           
+                    <tr>
+                       
+                        <td>
+                             <p>Set: {card.set.name}</p>
+                        </td>
+                    </tr>
+                    <tr>    
+                        <td>
+                             <p>Prices:</p>
+                        </td>
+                    </tr>
+                    <tr>  
                     
                     { prices==="" &&  
-                        <div>
+                        <td>
                             <p>Price not found</p> <br/>
-                        </div>
+                        </td>
                     }
                     
                     {prices.normal &&  
-                        <div>
+                        <td>
                             <p>Normal: USD {card.tcgplayer.prices.normal.market}</p> <br/>
-                        </div>
+                        </td>
                     }
                     { prices['1stEditionHolofoil'] &&  
-                        <div>
+                        <td>
                             <p>1st Edition Holofoil: USD {card.tcgplayer.prices['1stEditionHolofoil'].market}</p> <br/>
-                        </div>
+                        </td>
                     }
                     { prices.holofoil &&  
-                        <div>
+                        <td>
                             <p>Holo Foil: USD {card.tcgplayer.prices.holofoil.market}</p> <br/>
-                        </div>
+                        </td>
                     }
                     { prices.reverseHolofoil &&  
-                        <div>
+                        <td>
                             <p>Reverse Holo: USD {card.tcgplayer.prices.reverseHolofoil.market}</p> <br/>
-                        </div>
+                        </td>
                     }
                
                     
                     
-                       
+                    </tr>
             
-                </div>
+                </table>
                   
              }
             </div>

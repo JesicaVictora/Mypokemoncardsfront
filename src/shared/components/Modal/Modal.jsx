@@ -6,7 +6,7 @@ import './Modal.css';
 
 
 export function Modal (props){
- console.log(props);
+ 
     return(
         <div className="Modal_main" onClick={()=>{
             props.close();

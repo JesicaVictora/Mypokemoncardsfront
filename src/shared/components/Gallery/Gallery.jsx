@@ -3,21 +3,31 @@ import {Link} from "react-router-dom";
 import './Gallery.css';
 
 export function Gallery (props){
-
  
    /* <Link to={"/card/"+card.id}> */
     return(
   
-        <div className="cards_container">
-        {props.cards.map((card, i)=> 
-             <div className="card"  key={i}>
-             <Link onClick={()=>{
-               props.setCard(card.id);
-               }}> 
+        <div className="gallery_container">
+        {props.elements.map((element, i)=> 
+             <div className={props.type}  key={i}>
+           
 
+               {props.type == "card" &&
+                    <Link onClick={()=>{
+                props.setCard(element.id);
+                }}> 
+                    <img src={element.images.small} alt={element.name} /> 
+                    </Link>
+               }
+             
+          
+            
 
-                <img src={card.images.small} alt={card.name} /> 
-             </Link>
+               {props.type == "set" &&
+               <Link  to={`/card/${element.id}`}> 
+                    <img src={element.images.logo} alt={element.name} /> 
+                </Link>
+               }
                 
             </div>          
             

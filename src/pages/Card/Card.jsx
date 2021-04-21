@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
+
 import { API } from '../../shared/consts/api.consts';
 import { Gallery } from '../../shared/components/Gallery/Gallery';
 import {SearchBar} from '../../shared/components/SearchBar/SearchBar'
@@ -6,9 +8,14 @@ import { Modal } from '../../shared/components/Modal/Modal';
 import './Card.css';
 
 export function Card (){
+
+  let {setId} = useParams();
+  
   const [cards, setCards] = useState([]);
   const [cardId,setCardId]= useState("");
   const [showModal, setShowModal] = useState(false);
+
+
 
   const setCard= (card)=>{
 
@@ -28,14 +35,21 @@ export function Card (){
       //axios.get(process.env.REACT_APP_BACK_URL + 'v2/cards').then((res)=> { 
 
       if(filter){
-        
-        API.get('v2/cards?q=name:'+filter+'*').then((res)=> { 
+        let params = 'name:'+filter+'* ';
+          if(setId){
+            params +='set.id:'+setId;
+          }
+
+        API.get('v2/cards?q='+params).then((res)=> { 
           setCards(res.data.data); 
-        });  
+        }); 
 
       }else{
-
-        API.get('v2/cards').then((res)=> { 
+        let querry='';
+        if(setId){
+          querry ='?q=set.id:'+setId;
+        }
+        API.get('v2/cards'+querry).then((res)=> { 
           setCards(res.data.data); 
         });  
 
@@ -60,7 +74,7 @@ export function Card (){
             
                 <SearchBar search={getCards}></SearchBar>
 
-                <Gallery cards={cards} setCard={setCard} ></Gallery>
+                <Gallery elements={cards} setCard={setCard} type="card"></Gallery>
 
           
         </div>
