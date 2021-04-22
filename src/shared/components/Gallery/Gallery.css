@@ -27,15 +27,17 @@
         margin: 10px;
         width: 200px;
         height: 150px;
-        background-color: grey;
+        background-color: white;
         overflow: hidden;
-        image-rendering: auto;
-        border-radius: 10px;
+
+        text-align:center;
+        align-content: center;
+        display: grid;
+       
 
        
 }
 .set img{
     image-rendering: auto;
-    width: 100%;
-    
+    max-width: 100%;     
 }
