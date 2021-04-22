@@ -1,3 +1,15 @@
+
+
+.App{
+
+    background: #8cc253;
+    background: -webkit-linear-gradient(top left, #c8f598 0%, #8cc253 100%);
+    background: -moz-linear-gradient(top left, #c8f598 0%, #8cc253 100%);
+    background: -o-linear-gradient(top left, #c8f598 0%, #8cc253 100%);
+    background: linear-gradient(to bottom right, #c8f598 0%, #8cc253 100%);
+    min-height: 100vh; 
+
+}
 .App_container{
 
 padding-top: 50px;

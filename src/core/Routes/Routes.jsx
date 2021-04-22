@@ -6,12 +6,15 @@ import {
 import {HomePage} from "../../pages/HomePage/HomePage";
 import {Card} from "../../pages/Card/Card";
 import {Sets} from "../../pages/Sets/Sets";
-import {CardInfo} from "../../pages/CardInfo/CardInfo";
+import {ContactPage} from "../../pages/ContactPage/ContactPage"
 export function Routes() {
 
 
     return (
         <Switch>
+             <Route path="/contact">
+                <ContactPage/>
+            </Route>
 
             <Route path="/card/:setId">
                 <Card/>
