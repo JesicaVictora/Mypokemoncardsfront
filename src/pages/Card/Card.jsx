@@ -41,6 +41,7 @@ export function Card (){
           }
 
         API.get('v2/cards?q='+params).then((res)=> { 
+       
           setCards(res.data.data); 
         }); 
 
@@ -66,7 +67,9 @@ export function Card (){
     return(
       <div>
         {showModal === true &&
-          <div className="Modal_container"> 
+          <div className="Modal_container" onClick={()=>{
+            closeModal();
+            }}>
                 <Modal cardId={cardId} close={closeModal} ></Modal>             
           </div>
         }

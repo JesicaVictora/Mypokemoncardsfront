@@ -22,7 +22,7 @@ export function Gallery (props){
              
           
             
-
+               
                {props.type == "set" &&
                <Link  to={`/card/${element.id}`}> 
                     <img src={element.images.logo} alt={element.name} /> 
