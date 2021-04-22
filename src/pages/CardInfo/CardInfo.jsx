@@ -1,15 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import { API } from '../../shared/consts/api.consts';
 import './CardInfo.css';
+import { LoadingContext } from '../../core/Loading/contexts/LoadingContext';
 
 
 export function CardInfo (props){
     const [card, setCard] = useState([]);
     const [prices, setPrices]= useState([]);
     const cardId = props.cardId;
+    const {setIsLoading} = useContext(LoadingContext);
     
       
     const getCard = () =>{
+        setIsLoading(true);
         API.get('v2/cards/'+cardId).then((res)=> { 
             
            setCard(res.data.data);
@@ -18,7 +21,7 @@ export function CardInfo (props){
             setPrices(res.data.data.tcgplayer.prices);
            };
           
-        
+           setIsLoading(false);
          });  
     }
     useEffect(getCard, []); 

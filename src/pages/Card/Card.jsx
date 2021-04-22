@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import { useParams } from 'react-router-dom';
 
 import { API } from '../../shared/consts/api.consts';
@@ -6,6 +6,7 @@ import { Gallery } from '../../shared/components/Gallery/Gallery';
 import {SearchBar} from '../../shared/components/SearchBar/SearchBar'
 import { Modal } from '../../shared/components/Modal/Modal';
 import './Card.css';
+import { LoadingContext } from '../../core/Loading/contexts/LoadingContext';
 
 export function Card (){
 
@@ -14,6 +15,7 @@ export function Card (){
   const [cards, setCards] = useState([]);
   const [cardId,setCardId]= useState("");
   const [showModal, setShowModal] = useState(false);
+  const {setIsLoading} = useContext(LoadingContext);
 
 
 
@@ -33,7 +35,7 @@ export function Card (){
 
   const getCards = (filter) =>{
       //axios.get(process.env.REACT_APP_BACK_URL + 'v2/cards').then((res)=> { 
-
+      setIsLoading(true);
       if(filter){
         let params = 'name:'+filter+'* ';
           if(setId){
@@ -43,6 +45,7 @@ export function Card (){
         API.get('v2/cards?q='+params).then((res)=> { 
        
           setCards(res.data.data); 
+          setIsLoading(false);
         }); 
 
       }else{
@@ -52,6 +55,7 @@ export function Card (){
         }
         API.get('v2/cards'+querry).then((res)=> { 
           setCards(res.data.data); 
+          setIsLoading(false);
         });  
 
       }
