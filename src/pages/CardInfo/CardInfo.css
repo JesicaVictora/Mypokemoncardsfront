@@ -8,3 +8,19 @@
     border-color: white;
 
 }
+.mobile_container{
+    display: none;
+
+}
+
+@media (max-width:768px){
+    .table{
+       display: none;
+    }   
+
+    .mobile_container{
+        display: flex;
+        flex-wrap: wrap;
+    
+    }
+}

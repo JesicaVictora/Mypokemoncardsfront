@@ -33,6 +33,7 @@ export function CardInfo (props){
       return(
             <div className="card_container">
              { card.images && 
+             <div>
                 <table class="table">
                     <tr>
                         <td rowspan="8">
@@ -41,10 +42,8 @@ export function CardInfo (props){
                         <td>
                             <h1> {card.name}</h1>
                         </td>
-
                     </tr>
-                    
-           
+                
                     <tr>
                        
                         <td>
@@ -90,7 +89,46 @@ export function CardInfo (props){
                     </tr>
             
                 </table>
-                  
+                
+                <div class="mobile_container">
+               
+                    <img src={card.images.small}></img>
+                        
+                    <h1> {card.name}</h1>
+                       
+                    <p>Set: {card.set.name}</p>
+                       
+                    <p>Prices:</p>
+                       
+                    { prices==="" &&  
+                        
+                        <p>Price not found</p> 
+                   
+                    }
+                    
+                    {prices.normal &&  
+                    
+                        <p>Normal: USD {card.tcgplayer.prices.normal.market}</p> 
+                       
+                    }
+                    { prices['1stEditionHolofoil'] &&  
+                       
+                        <p>1st Edition Holofoil: USD {card.tcgplayer.prices['1stEditionHolofoil'].market}</p>
+                       
+                    }
+                    { prices.holofoil &&  
+                      
+                        <p>Holo Foil: USD {card.tcgplayer.prices.holofoil.market}</p>
+                      
+                    }
+                    { prices.reverseHolofoil &&  
+                     
+                        <p>Reverse Holo: USD {card.tcgplayer.prices.reverseHolofoil.market}</p> 
+                     
+                    }
+               
+                </div>
+             </div>
              }
             </div>
       );
