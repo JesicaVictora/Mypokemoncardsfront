@@ -95,7 +95,7 @@ export function CardInfo (props){
                     <img src={card.images.small}></img>
                         
                     <h1> {card.name}</h1>
-                       
+                    <br/>
                     <p>Set: {card.set.name}</p>
                        
                     <p>Prices:</p>

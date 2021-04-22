@@ -1,0 +1,15 @@
+.search_bar{
+    display: grid;
+    width: 50%;
+    margin: auto;
+    margin-top: 10px;
+
+}
+.search_bar #search{
+    border-radius: 10px;
+    border-color: gray;
+    background-color: rgb(240, 240, 240);
+    color: rgb(102, 101, 101);
+    font-weight: 600;
+
+}
