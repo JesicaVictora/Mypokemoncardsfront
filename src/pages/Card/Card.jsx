@@ -55,7 +55,7 @@ export function Card (){
         }
         API.get('v2/cards'+querry).then((res)=> { 
           setCards(res.data.data); 
-          setIsLoading(false);
+         setIsLoading(false);
         });  
 
       }

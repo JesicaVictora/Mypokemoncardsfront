@@ -1,0 +1,10 @@
+.form_container{
+    width: 70%;
+    margin:auto;
+
+}
+
+.form_element{
+    display: flex !important;
+
+}

@@ -6,6 +6,7 @@
 
 }
 .search_bar #search{
+    width: 100%;
     border-radius: 10px;
     border-color: green;
     background-color: rgba(206, 253, 184, 0.89);

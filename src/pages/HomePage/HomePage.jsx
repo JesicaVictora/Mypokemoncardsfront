@@ -1,6 +1,6 @@
 import React from 'react';
+import { RegisterForm } from '../../shared/components/RegisterForm/RegisterForm';
 import './HomePage.css';
-
 
 export function HomePage (){
     
@@ -8,6 +8,7 @@ export function HomePage (){
     <div className="Home_container">
       <div className="Home_content">
         <h1>Bienvenidos!</h1>
+        <RegisterForm></RegisterForm>
           <p> Este es un proyecto en construcción aún esta en fase muy beta. 
             Demora bastante tiempo en cargar ya que esta basado en una api gratuita. 
             Tenle paciencia y amor 😊
