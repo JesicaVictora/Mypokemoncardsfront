@@ -30,7 +30,8 @@ Al pulsar sobre un set te muestra un listado con todas las cartas que lo compone
 
 Para su correcto funcionamiento, se debe de incluir el archivo .env con los siguientes datos :
 
-```REACT_APP_BACK_URL=https://api.pokemontcg.io/
+```
+REACT_APP_BACK_URL=https://api.pokemontcg.io/
 REACT_APP_API_KEY= //Aqui va la Key de pokemontcg.io//
 REACT_APP_BACK_URL2= //La url de nuestro backend que manejara los usuarios y sus perfiles 
 ```
